@@ -1,0 +1,43 @@
+@startuml
+abstract class AbstractShape{
+    -x: int
+    -y: int
+
+    +getCenter()
+    +getArea(): double
+    +getPerimeter(): double
+    +getShape()
+}
+
+class Circle{
+    -radius: int
+
+    +getCenter()
+    +getArea(): double
+    +getPerimeter(): double
+    +getShape()
+ }
+
+class Line{
+    -x2 int
+    -y2 int
+
+    +getCenter()
+    +getArea(): double
+    +getPerimeter(): double
+    +getShape()
+}
+
+class Compound{
+    -shapes: AbstractShape[]
+
+    +getCenter()
+    +getArea(): double
+    +getPerimeter(): double
+    +getShape()
+}
+
+AbstractShape <|-- Circle
+AbstractShape <|-- Line
+AbstractShape <|-- Compound
+@enduml

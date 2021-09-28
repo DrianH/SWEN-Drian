@@ -1,0 +1,47 @@
+@startuml
+class User{
+    -username: String
+    -password: String
+    -stack: ArrayList<Card>
+    -deck: Card[4]
+    -elo: int
+    -coins: int = 20
+}
+
+abstract class Card{
+    -id: String
+    -name: String
+    -element: String
+    -description: String
+    -power: int
+}
+
+class Store{
+    -deals: HashMap<User, HashMap<Card, String>>
+    -packages: ArrayList<Package>
+}
+
+class MonsterCard{
+    -race: String
+}
+
+class SpellCard{
+}
+
+class Package{
+    -cards: Card[5]
+}
+
+class Battle{
+    -round: int
+    -competitors: User[2]
+    -winner: User
+}
+
+User --- Card
+Card <-- MonsterCard
+Card <-- SpellCard
+User --- Battle
+User --- Store
+Store --- Package
+@enduml
