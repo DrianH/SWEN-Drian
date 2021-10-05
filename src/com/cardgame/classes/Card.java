@@ -1,5 +1,7 @@
 package com.cardgame.classes;
 
+import java.util.UUID;
+
 public abstract class Card {
     private String id;
     private String name;
@@ -7,8 +9,8 @@ public abstract class Card {
     private String description;
     private int power;
 
-    public Card(String id, String name, String element, String description, int power) {
-        this.id = id;
+    public Card(String name, String element, String description, int power) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.element = element;
         this.description = description;
